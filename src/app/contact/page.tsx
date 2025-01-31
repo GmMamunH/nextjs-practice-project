@@ -1,9 +1,21 @@
-import React from 'react'
-
-const ContactPage = () => {
-  return (
-    <div className="text-2xl text-center text-red-500 p-4">ContactPage</div>
-  );
+async function getNews() {
+  const res = await fetch("https://news-api-seven-ivory.vercel.app/api/news");
+  return res.json();
 }
 
-export default ContactPage
+export default async function ContactPage() {
+  const news = await getNews();
+
+  return (
+    <div>
+      <h1>Latest News</h1>
+      <ul>
+        {news.map((item: any) => (
+          <li key={item.id}>
+            {item.title} - {item.category}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
