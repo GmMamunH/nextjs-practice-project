@@ -1,16 +1,20 @@
-async function getNews() {
+type NewsItem = {
+  id: string; // অথবা number, যদি ID সংখ্যা হয়
+  title: string;
+  category: string;
+};
+
+async function getNews(): Promise<NewsItem[]> {
   const res = await fetch("https://news-api-seven-ivory.vercel.app/api/news");
   return res.json();
 }
-
-export default async function ContactPage() {
-  const news = await getNews();
-
+const ContactPage = async (): Promise<NewsItem[]> => {
+  const news: NewsItem[] = await getNews();
   return (
     <div>
       <h1>Latest News</h1>
       <ul>
-        {news.map((item: any) => (
+        {news.map((item: NewsItem) => (
           <li key={item.id}>
             {item.title} - {item.category}
           </li>
@@ -19,3 +23,5 @@ export default async function ContactPage() {
     </div>
   );
 }
+
+export default ContactPage;
