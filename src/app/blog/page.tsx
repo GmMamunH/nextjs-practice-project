@@ -2,8 +2,16 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+// Blog টাইপ তৈরি করা হলো
+type BlogType = {
+  id: number;
+  title: string;
+  body: string; // body field যদি থাকে
+};
+
 const BlogPage = () => {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<BlogType[]>([]); // useState-এ টাইপ দেওয়া হলো
+
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
@@ -16,17 +24,21 @@ const BlogPage = () => {
         Client-Side Rendering
       </h1>
       <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 py-6">
-        {blogs.map((blog: any) => (
-          <li key={blog.id}>
-            <div className="shadow-lg p-4 border rounded-lg">
-              <Link href={`/blog/${blog.id}`}>
-                <h2 className="line-clamp-2 text-2xl font-medium cursor-pointer">
-                  {blog.title}
-                </h2>
-              </Link>
-            </div>
-          </li>
-        ))}
+        {blogs.map(
+          (
+            blog: BlogType // blogs.map()-এ টাইপ নির্দিষ্ট করা হলো
+          ) => (
+            <li key={blog.id}>
+              <div className="shadow-lg p-4 border rounded-lg">
+                <Link href={`/blog/${blog.id}`}>
+                  <h2 className="line-clamp-2 text-2xl font-medium cursor-pointer">
+                    {blog.title}
+                  </h2>
+                </Link>
+              </div>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
