@@ -16,10 +16,13 @@ const BlogsPage = () => {
   if (!blog) return <p>Loading...</p>;
 
   return (
-    <div className="p-6 text-lg">
-      <h1 className="text-3xl font-bold">{blog.title}</h1>
-      <p className="mt-4">{blog.body}</p>
-    </div>
+    <>
+      
+      <div className="p-6 text-lg">
+        <h1 className="text-3xl font-bold">{blog.title}</h1>
+        <p className="mt-4">{blog.body}</p>
+      </div>
+    </>
   );
 };
 

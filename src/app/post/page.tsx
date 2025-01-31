@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 
 const getPosts = async () => {
@@ -12,6 +13,7 @@ const PostPage = async() => {
       <h1 className="text-center text-2xl font-bold py-2">
         Server-Side Rendering
       </h1>
+      
       <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 py-6">
         {posts.slice(0, 12).map((post: any) => (
           <li key={post.id}>
