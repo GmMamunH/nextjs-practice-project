@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import BlogsNavBar from "./components/BlogsNavBar";
 
 export default function BlogsLayout({

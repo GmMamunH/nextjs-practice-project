@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-
+type blogsType={
+  id: number;
+  title: string;
+  body: string; 
+}
 const BlogsPage = () => {
   const { blogsId } = useParams();
-  const [blog, setBlog] = useState<any>(null);
+  const [blog, setBlog] = useState<blogsType | null>(null);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${blogsId}`)
