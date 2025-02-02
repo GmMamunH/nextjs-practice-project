@@ -23,7 +23,7 @@ const BlogPage = () => {
       <h1 className="text-center text-2xl font-bold py-2">
         Client-Side Rendering
       </h1>
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 py-6">
+      <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 py-6">
         {blogs.map(
           (
             blog: BlogType // blogs.map()-এ টাইপ নির্দিষ্ট করা হলো

@@ -5,7 +5,7 @@ import React from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
-  if (pathname.includes("post")) {
+  if (pathname.includes("post") || pathname.includes("blog")) {
     return null;
   }
   return (
