@@ -1,7 +1,13 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const Navbar = () => {
+  const pathname = usePathname();
+  if (pathname.includes("post")) {
+    return null;
+  }
   return (
     <>
       <div className=" px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600">
